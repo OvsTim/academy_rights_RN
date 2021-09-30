@@ -10,7 +10,7 @@ import {
 import {RootState} from '../redux';
 import HomeScreen from '../components/screens/HomeScreen';
 import ServiceScreen from '../components/screens/ServiceScreen';
-import {Image, Text, useWindowDimensions, View} from 'react-native';
+import {Image, Platform, Text, useWindowDimensions, View} from 'react-native';
 import ServiceTextScreen from '../components/screens/ServiceTextScreen';
 import DocumentsOnlineScreen from '../components/screens/DocumentsOnlineScreen';
 import FilialScreen from '../components/screens/FilialScreen';
@@ -18,6 +18,7 @@ import TeamScreen from '../components/screens/TeamScreen';
 import ContactsScreen from '../components/screens/ContactsScreen';
 import NewsScreen from '../components/screens/NewsScreen';
 import FeedbackScreen from '../components/screens/FeedbackScreen';
+import {withFont} from '../components/_CustomComponents/HOC/withFont';
 export type MainStackParamList = {
   Home: undefined;
   Service: undefined;
@@ -30,6 +31,8 @@ export type MainStackParamList = {
   Team: undefined;
   ServiceText: undefined;
 };
+
+const StyledText = withFont(Text);
 export default function MainNavigator() {
   const token = useSelector((state: RootState) => state.data.token);
   console.log('token', token);
@@ -42,16 +45,18 @@ export default function MainNavigator() {
           style={{
             borderBottomWidth: 1,
             borderBottomColor: 'white',
+            marginBottom: 32,
           }}>
-          <Text
+          <StyledText
             style={{
+              fontWeight: '500',
               marginVertical: 32,
               alignSelf: 'center',
               color: 'white',
               fontSize: 26,
             }}>
             ООО "Академия Права"
-          </Text>
+          </StyledText>
         </View>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
@@ -65,7 +70,11 @@ export default function MainNavigator() {
       // overlayColor={'transparent'}
       drawerContent={props => renderDrawerContent(props)}
       drawerContentOptions={{
-        labelStyle: {color: 'white', textTransform: 'capitalize'},
+        labelStyle: {
+          color: 'white',
+          textTransform: 'capitalize',
+          fontFamily: 'Montserrat-Bold',
+        },
         activeTintColor: '#DFF7FF',
       }}
       drawerStyle={{backgroundColor: '#2862AC', width: width - 50}}
@@ -73,7 +82,7 @@ export default function MainNavigator() {
         headerPressColorAndroid: 'white',
         headerShown: true,
         headerStyle: {backgroundColor: '#2862AC'},
-        headerTitleStyle: {color: 'white'},
+        headerTitleStyle: {color: 'white', fontFamily: 'Montserrat-Regular'},
         headerTintColor: 'white',
 
         headerRight: () => (
