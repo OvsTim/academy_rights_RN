@@ -5,14 +5,22 @@ import React from 'react';
 const actions = [
   {
     text: 'Позвонить',
-    textStyle: {fontFamily: 'Montserrat-Regular'},
+    textStyle: {
+      fontFamily: 'Montserrat-Regular',
+      includeFontPadding: false,
+      textAlign: 'center',
+    },
     icon: require('../../assets/outline_local_phone_black_36.png'),
     name: 'call',
     position: 1,
   },
   {
     text: 'Написать в WhatsApp',
-    textStyle: {fontFamily: 'Montserrat-Regular'},
+    textStyle: {
+      fontFamily: 'Montserrat-Regular',
+      includeFontPadding: false,
+      textAlign: 'center',
+    },
     icon: require('../../assets/WhatsApp.svg.png'),
     name: 'whatsApp',
     position: 1,

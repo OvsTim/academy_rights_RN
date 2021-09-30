@@ -19,10 +19,9 @@ function getFontName(fontWeight?: string): string {
       default: 'Roboto',
     });
   } else {
-    return 'Roboto';
+    return 'Montserrat-Regular';
   }
 }
-
 export function withFont<T extends Props>(
   WrappedComponent: React.ComponentType<Props>,
 ) {
