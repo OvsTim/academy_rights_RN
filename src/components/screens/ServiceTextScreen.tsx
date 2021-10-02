@@ -44,7 +44,7 @@ export default function ServiceTextScreen({}: Props) {
           <StyledText
             style={{
               fontSize: 20,
-              fontFamily: 'Montserrat-Bold',
+              fontWeight:'600',
               color: 'white',
             }}>
             Написать нам

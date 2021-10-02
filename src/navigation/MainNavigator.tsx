@@ -160,23 +160,23 @@ export default function MainNavigator() {
           ),
         }}
       />
-      <Drawer.Screen
-        name="Filial"
-        component={FilialScreen}
-        options={{
-          title: 'Филиалы',
-          drawerIcon: props => (
-            <Image
-              source={require('../assets/outline_corporate_fare_black_36.png')}
-              style={{
-                width: props.size,
-                height: props.size,
-                tintColor: 'white',
-              }}
-            />
-          ),
-        }}
-      />
+      {/*<Drawer.Screen*/}
+      {/*  name="Filial"*/}
+      {/*  component={FilialScreen}*/}
+      {/*  options={{*/}
+      {/*    title: 'Филиалы',*/}
+      {/*    drawerIcon: props => (*/}
+      {/*      <Image*/}
+      {/*        source={require('../assets/outline_corporate_fare_black_36.png')}*/}
+      {/*        style={{*/}
+      {/*          width: props.size,*/}
+      {/*          height: props.size,*/}
+      {/*          tintColor: 'white',*/}
+      {/*        }}*/}
+      {/*      />*/}
+      {/*    ),*/}
+      {/*  }}*/}
+      {/*/>*/}
       <Drawer.Screen
         name="Team"
         component={TeamScreen}
@@ -211,23 +211,23 @@ export default function MainNavigator() {
           ),
         }}
       />
-      <Drawer.Screen
-        name="News"
-        component={NewsScreen}
-        options={{
-          title: 'Новости',
-          drawerIcon: props => (
-            <Image
-              source={require('../assets/outline_feed_black_36.png')}
-              style={{
-                width: props.size,
-                height: props.size,
-                tintColor: 'white',
-              }}
-            />
-          ),
-        }}
-      />
+      {/*<Drawer.Screen*/}
+      {/*  name="News"*/}
+      {/*  component={NewsScreen}*/}
+      {/*  options={{*/}
+      {/*    title: 'Новости',*/}
+      {/*    drawerIcon: props => (*/}
+      {/*      <Image*/}
+      {/*        source={require('../assets/outline_feed_black_36.png')}*/}
+      {/*        style={{*/}
+      {/*          width: props.size,*/}
+      {/*          height: props.size,*/}
+      {/*          tintColor: 'white',*/}
+      {/*        }}*/}
+      {/*      />*/}
+      {/*    ),*/}
+      {/*  }}*/}
+      {/*/>*/}
       <Drawer.Screen
         name="Feedback"
         component={FeedbackScreen}

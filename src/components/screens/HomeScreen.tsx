@@ -21,7 +21,7 @@ export default function HomeScreen({}: Props) {
         }}>
         <StyledText
           style={{
-            fontWeight: '700',
+            fontWeight: '600',
             fontSize: 28,
             textAlign: 'center',
             marginVertical: 32,

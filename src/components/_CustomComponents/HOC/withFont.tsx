@@ -6,22 +6,23 @@ interface Props extends TextProps {
 }
 
 function getFontName(fontWeight?: string): string {
-  if (fontWeight === '700') {
+  if (fontWeight === '600') {
     return Platform.select({
       android: 'Montserrat-Bold',
-      ios: 'Montserrat-Bold',
+      ios: 'Montserrat Bold',
       default: 'Roboto',
     });
   } else if (fontWeight === '500') {
     return Platform.select({
       android: 'Montserrat-Regular',
-      ios: 'Montserrat-Regular',
+      ios: 'Montserrat Regular',
       default: 'Roboto',
     });
   } else {
-    return 'Montserrat-Regular';
+    return 'Montserrat Bold';
   }
 }
+
 export function withFont<T extends Props>(
   WrappedComponent: React.ComponentType<Props>,
 ) {
