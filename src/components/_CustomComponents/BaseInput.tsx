@@ -6,8 +6,9 @@ import {
   TextInputProps,
   TextProps,
   Text,
+  useWindowDimensions,
 } from 'react-native';
-import {vScale, hScale, window} from '../../utils/scaling';
+import {withFont} from './HOC/withFont';
 
 type Props = {
   value: string;
@@ -24,33 +25,32 @@ type Props = {
 
 export default function BaseInput(props: Props) {
   const [value, setValue] = useState<string>(props.value);
-
+  const {width} = useWindowDimensions();
   function handleInput(input: string) {
     props.onTextChanges(input);
     setValue(input);
   }
 
+  const StyledText = withFont(Text);
   function renderLabel() {
     return (
       <View
         style={{
           position: 'absolute',
-          left: hScale(16),
-          top: -vScale(16) / 2,
-          backgroundColor: 'lightgray',
-          height: vScale(16),
-          paddingHorizontal: hScale(15),
-          borderRadius: vScale(16) / 2,
+          left: 0,
+          top: -24,
+          height: 16,
         }}>
-        <Text
+        <StyledText
           style={[
             {
-              color: 'gray',
+              fontFamily: 'Montserrat-Regular',
+              color: 'black',
             },
             props.labelStyle,
           ]}>
           {props.label}
-        </Text>
+        </StyledText>
       </View>
     );
   }
@@ -59,14 +59,15 @@ export default function BaseInput(props: Props) {
     <View
       style={[
         {
-          width: window().width - hScale(32),
-          height: vScale(44),
+          marginTop: 32,
+          width: width - 64,
+          minHeight: 44,
           alignItems: 'center',
           justifyContent: 'center',
-          borderRadius: vScale(6),
-          borderWidth: vScale(2),
-          borderColor: 'lightgray',
-          backgroundColor: 'transparent',
+          backgroundColor: 'white',
+          borderColor: '#2862AC',
+          borderWidth: 2,
+          borderRadius: 8,
         },
         props.styleContainer,
       ]}>
@@ -74,9 +75,11 @@ export default function BaseInput(props: Props) {
         style={[
           {
             width: '100%',
-            paddingRight: hScale(32),
-            paddingLeft: hScale(12),
-            fontSize: vScale(14),
+            paddingRight: 32,
+            paddingLeft: 12,
+            fontSize: 14,
+            fontFamily: 'Montserrat-Regular',
+
             backgroundColor: 'transparent',
           },
           props.styleInput,
