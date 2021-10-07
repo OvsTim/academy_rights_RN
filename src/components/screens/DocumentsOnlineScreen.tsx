@@ -18,7 +18,7 @@ type Props = {
 };
 const Button = withPressable(View);
 const StyledText = withFont(Text);
-export default function DocumentsOnlineScreen({}: Props) {
+export default function DocumentsOnlineScreen({navigation}: Props) {
   const {width} = useWindowDimensions();
 
   const renderCard = (image: ImageSourcePropType, name: string) => {
@@ -30,7 +30,7 @@ export default function DocumentsOnlineScreen({}: Props) {
             width: 0,
             height: 0,
           },
-          alignSelf:'center',
+          alignSelf: 'center',
           shadowOpacity: 0.5,
           shadowRadius: 2.5,
           width: width - 48,
@@ -43,13 +43,13 @@ export default function DocumentsOnlineScreen({}: Props) {
             backgroundColor: 'white',
             alignItems: 'center',
             borderRadius: 8,
-            padding:8,
+            padding: 8,
             flexDirection: 'row',
           }}>
           <Image style={{width: 32, height: 32}} source={image} />
           <StyledText
             style={{
-              width:width/3*2,
+              width: (width / 3) * 2,
               color: '#2862AC',
               fontWeight: '600',
               textAlign: 'center',
@@ -75,8 +75,7 @@ export default function DocumentsOnlineScreen({}: Props) {
             fontSize: 28,
             fontWeight: '600',
             marginVertical: 32,
-              marginHorizontal: 24,
-
+            marginHorizontal: 24,
           }}>
           {'Закажите документ, не выходя из дома!'}
         </StyledText>
@@ -85,9 +84,8 @@ export default function DocumentsOnlineScreen({}: Props) {
             fontSize: 16,
             fontWeight: '500',
             textAlign: 'left',
-            marginBottom:16,
-              marginHorizontal: 24,
-
+            marginBottom: 16,
+            marginHorizontal: 24,
           }}>
           {'Преимущества услуги "Документы Онлайн"'}
         </StyledText>
@@ -110,7 +108,11 @@ export default function DocumentsOnlineScreen({}: Props) {
       </ScrollView>
       <View style={{position: 'absolute', bottom: 0, alignSelf: 'center'}}>
         <Button
-          onPress={() => {}}
+          onPress={() =>
+            navigation.jumpTo('Feedback', {
+              theme: 'Интересует услуга "Документы Онлайн"',
+            })
+          }
           containerStyle={{
             width: width - 50,
             backgroundColor: '#2862AC',

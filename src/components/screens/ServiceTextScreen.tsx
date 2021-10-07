@@ -10,7 +10,7 @@ type Props = {
 const StyledText = withFont(Text);
 const Button = withPressable(View);
 
-export default function ServiceTextScreen({}: Props) {
+export default function ServiceTextScreen({navigation}: Props) {
   const {width} = useWindowDimensions();
   return (
     <View style={{flex: 1, backgroundColor: '#DFF7FF'}}>
@@ -33,7 +33,11 @@ export default function ServiceTextScreen({}: Props) {
       </ScrollView>
       <View style={{position: 'absolute', bottom: 0, alignSelf: 'center'}}>
         <Button
-          onPress={() => {}}
+          onPress={() => {
+            navigation.jumpTo('Feedback', {
+              theme: 'Являюсь юридическим лицом',
+            });
+          }}
           containerStyle={{
             width: width - 50,
             backgroundColor: '#2862AC',
@@ -44,7 +48,7 @@ export default function ServiceTextScreen({}: Props) {
           <StyledText
             style={{
               fontSize: 20,
-              fontWeight:'600',
+              fontWeight: '600',
               color: 'white',
             }}>
             Написать нам

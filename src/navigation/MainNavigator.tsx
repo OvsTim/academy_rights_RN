@@ -10,13 +10,11 @@ import {
 import {RootState} from '../redux';
 import HomeScreen from '../components/screens/HomeScreen';
 import ServiceScreen from '../components/screens/ServiceScreen';
-import {Image, Platform, Text, useWindowDimensions, View} from 'react-native';
+import {Image, Text, useWindowDimensions, View} from 'react-native';
 import ServiceTextScreen from '../components/screens/ServiceTextScreen';
 import DocumentsOnlineScreen from '../components/screens/DocumentsOnlineScreen';
-import FilialScreen from '../components/screens/FilialScreen';
 import TeamScreen from '../components/screens/TeamScreen';
 import ContactsScreen from '../components/screens/ContactsScreen';
-import NewsScreen from '../components/screens/NewsScreen';
 import FeedbackScreen from '../components/screens/FeedbackScreen';
 import {withFont} from '../components/_CustomComponents/HOC/withFont';
 export type MainStackParamList = {
@@ -24,7 +22,7 @@ export type MainStackParamList = {
   Service: undefined;
   Contacts: undefined;
   DocumentsOnline: undefined;
-  Feedback: undefined;
+  Feedback: {theme?: string};
   Filial: undefined;
   Links: undefined;
   News: undefined;
@@ -67,6 +65,7 @@ export default function MainNavigator() {
     <Drawer.Navigator
       drawerType={'slide'}
       statusBarAnimation={'slide'}
+      // detachInactiveScreens={true}
       // overlayColor={'transparent'}
       drawerContent={props => renderDrawerContent(props)}
       drawerContentOptions={{
@@ -230,6 +229,7 @@ export default function MainNavigator() {
       {/*/>*/}
       <Drawer.Screen
         name="Feedback"
+        initialParams={{theme: undefined}}
         component={FeedbackScreen}
         options={{
           title: 'Написать нам',

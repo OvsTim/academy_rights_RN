@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {Ref, useState} from 'react';
 import {
   View,
   TextInput,
@@ -21,6 +21,7 @@ type Props = {
   label: string;
   inputProps: TextInputProps;
   labelStyle: TextProps;
+  inputRef?: Ref<TextInput>;
 };
 
 export default function BaseInput(props: Props) {
@@ -72,6 +73,7 @@ export default function BaseInput(props: Props) {
         props.styleContainer,
       ]}>
       <TextInput
+        ref={props.inputRef}
         style={[
           {
             width: '100%',

@@ -8,8 +8,8 @@
         <item name="android:windowLayoutInDisplayCutoutMode" tools:targetApi="p">
             shortEdges <!-- default, shortEdges, never -->
         </item>
-        <item name="android:colorControlActivated">#FFA500</item>
-        <item name="android:textColorHighlight">#FFA500</item>
+        <item name="android:colorControlActivated">#000000</item>
+        <item name="android:textColorHighlight">#999999</item>
     </style>
 
 
