@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {Text, TextInput, useWindowDimensions, View} from 'react-native';
+import {Alert, Text, TextInput, useWindowDimensions, View} from 'react-native';
 import {DrawerNavigationProp} from '@react-navigation/drawer';
 import {MainStackParamList} from '../../navigation/MainNavigator';
 import BaseInput from '../_CustomComponents/BaseInput';
@@ -7,6 +7,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {withPressable} from '../_CustomComponents/HOC/withPressable';
 import {withFont} from '../_CustomComponents/HOC/withFont';
 import {RouteProp} from '@react-navigation/native';
+import RNSmtpMailer from 'react-native-smtp-mailer';
 
 type Props = {
   navigation: DrawerNavigationProp<MainStackParamList, 'Feedback'>;
@@ -27,6 +28,7 @@ export default function FeedbackScreen({route, navigation}: Props) {
     route.params && route.params.theme ? route.params.theme : '',
   );
   const [message, setMessage] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   React.useEffect(() => {
     const unsubscribe = navigation.addListener('focus', () => {
@@ -44,6 +46,71 @@ export default function FeedbackScreen({route, navigation}: Props) {
     });
     return unsubscribe;
   }, [navigation, route]);
+
+  function validateEmail(email: string): boolean {
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+
+  function onContinuePress() {
+    if (!email) {
+      Alert.alert('Ошибка', 'Укажте почту для обратной связи');
+      return;
+    }
+
+    if (!message) {
+      Alert.alert('Ошибка', 'Напишите текст обращения');
+      return;
+    }
+
+    if (!validateEmail(email.trim())) {
+      Alert.alert('Ошибка', 'Введенный почтовый ящик не является корректным');
+      return;
+    }
+
+    if (loading) {
+      return;
+    }
+
+    setLoading(true);
+    RNSmtpMailer.sendMail({
+      mailhost: 'smtp.gmail.com',
+      port: '465',
+      ssl: true,
+      username: 'academyRightNoReply@gmail.com',
+      password: 'Aa111111!',
+      fromName: name, // optional
+      replyTo: email.trim(), // optional
+      recipients: 'ovstim@mail.ru',
+      subject: theme ? theme : 'Новое сообзение',
+      htmlBody: message + '\nПочта для обратной связи',
+    })
+      .then(_ => {
+        Alert.alert('Сообщение', 'Ваше обращение успешно отправлено');
+        setLoading(false);
+        messageRef.current?.setNativeProps({
+          text: '',
+        });
+        nameRef.current?.setNativeProps({
+          text: '',
+        });
+        themeRef.current?.setNativeProps({
+          text: '',
+        });
+        emailRef.current?.setNativeProps({
+          text: '',
+        });
+        setMessage('')
+          setEmail('')
+          setTheme('')
+          setName('')
+      })
+      .catch(_ => {
+        Alert.alert('Ошибка', 'Повторите попытку позже');
+        setLoading(false);
+      });
+  }
 
   return (
     <View style={{flex: 1, backgroundColor: '#DFF7FF'}}>
@@ -129,7 +196,8 @@ export default function FeedbackScreen({route, navigation}: Props) {
           <View style={{height: 32}} />
 
           <Button
-            onPress={() => {}}
+            onPress={() => onContinuePress()}
+            loading={loading}
             containerStyle={{
               width: width - 50,
               backgroundColor: '#2862AC',
