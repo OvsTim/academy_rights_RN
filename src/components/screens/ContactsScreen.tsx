@@ -92,7 +92,7 @@ export default function ContactsScreen({}: Props) {
               />
             )}
             <View style={{marginLeft: 16, width: (width / 3) * 2}}>
-              <StyledText style={{fontWeight:'600', fontSize: 17}}>
+              <StyledText style={{fontWeight: '600', fontSize: 17}}>
                 {text}
               </StyledText>
               <StyledText style={{fontWeight: '500', fontSize: 17}}>

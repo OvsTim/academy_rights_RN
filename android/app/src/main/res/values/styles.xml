@@ -10,11 +10,17 @@
         </item>
         <item name="android:colorControlActivated">#000000</item>
         <item name="android:textColorHighlight">#999999</item>
+        <item name="android:forceDarkAllowed" tools:targetApi="q"> false </item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:navigationBarColor">#2862AC</item>
+        <item name="android:windowIsTranslucent">true</item>
+
     </style>
 
 
     <style name="SplashScreenTheme" parent="SplashScreen_SplashTheme">
         <item name="colorPrimaryDark">@color/status_bar_color</item>
+        <item name="android:navigationBarColor">#2862AC</item>
     </style>
     <style name="DialogDatePicker.Theme" parent="Theme.AppCompat.Light.Dialog">
         <item name="colorAccent">#FFA500</item>

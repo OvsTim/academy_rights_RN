@@ -17,6 +17,7 @@ import TeamScreen from '../components/screens/TeamScreen';
 import ContactsScreen from '../components/screens/ContactsScreen';
 import FeedbackScreen from '../components/screens/FeedbackScreen';
 import {withFont} from '../components/_CustomComponents/HOC/withFont';
+import LinksScreen from "../components/screens/LinksScreen";
 export type MainStackParamList = {
   Home: undefined;
   Service: undefined;
@@ -146,7 +147,7 @@ export default function MainNavigator() {
         name="DocumentsOnline"
         component={DocumentsOnlineScreen}
         options={{
-          title: 'Документы онлайн',
+          title: 'Документы Онлайн',
           drawerIcon: props => (
             <Image
               source={require('../assets/outline_document_scanner_black_36.png')}
@@ -247,7 +248,7 @@ export default function MainNavigator() {
       />
       <Drawer.Screen
         name="Links"
-        component={DocumentsOnlineScreen}
+        component={LinksScreen}
         options={{
           title: 'Ссылки',
           drawerIcon: props => (
