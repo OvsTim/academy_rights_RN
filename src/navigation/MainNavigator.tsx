@@ -246,23 +246,23 @@ export default function MainNavigator() {
           ),
         }}
       />
-      <Drawer.Screen
-        name="Links"
-        component={LinksScreen}
-        options={{
-          title: 'Ссылки',
-          drawerIcon: props => (
-            <Image
-              source={require('../assets/outline_public_black_36.png')}
-              style={{
-                width: props.size,
-                height: props.size,
-                tintColor: 'white',
-              }}
-            />
-          ),
-        }}
-      />
+      {/*<Drawer.Screen*/}
+      {/*  name="Links"*/}
+      {/*  component={LinksScreen}*/}
+      {/*  options={{*/}
+      {/*    title: 'Ссылки',*/}
+      {/*    drawerIcon: props => (*/}
+      {/*      <Image*/}
+      {/*        source={require('../assets/outline_public_black_36.png')}*/}
+      {/*        style={{*/}
+      {/*          width: props.size,*/}
+      {/*          height: props.size,*/}
+      {/*          tintColor: 'white',*/}
+      {/*        }}*/}
+      {/*      />*/}
+      {/*    ),*/}
+      {/*  }}*/}
+      {/*/>*/}
     </Drawer.Navigator>
   );
 }

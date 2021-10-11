@@ -83,8 +83,8 @@ export default function FeedbackScreen({route, navigation}: Props) {
       fromName: name, // optional
       replyTo: email.trim(), // optional
       recipients: 'ovstim@mail.ru',
-      subject: theme ? theme : 'Новое сообзение',
-      htmlBody: message + '\nПочта для обратной связи',
+      subject: theme ? theme : 'Новое сообщение',
+      htmlBody: message + '\nПочта для обратной связи: ' + email,
     })
       .then(_ => {
         Alert.alert('Сообщение', 'Ваше обращение успешно отправлено');
@@ -101,10 +101,10 @@ export default function FeedbackScreen({route, navigation}: Props) {
         emailRef.current?.setNativeProps({
           text: '',
         });
-        setMessage('')
-          setEmail('')
-          setTheme('')
-          setName('')
+        setMessage('');
+        setEmail('');
+        setTheme('');
+        setName('');
       })
       .catch(_ => {
         Alert.alert('Ошибка', 'Повторите попытку позже');
