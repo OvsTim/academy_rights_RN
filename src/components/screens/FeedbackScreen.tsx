@@ -82,7 +82,7 @@ export default function FeedbackScreen({route, navigation}: Props) {
       password: 'Aa111111!',
       fromName: name, // optional
       replyTo: email.trim(), // optional
-      recipients: 'ovstim@mail.ru',
+      recipients: 'antonio.ognev@yandex.ru',
       subject: theme ? theme : 'Новое сообщение',
       htmlBody: message + '\nПочта для обратной связи: ' + email,
     })

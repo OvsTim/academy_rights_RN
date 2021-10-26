@@ -3,6 +3,7 @@ import {
   FlatList,
   Image,
   Linking,
+  Platform,
   Text,
   useWindowDimensions,
   View,
@@ -20,10 +21,10 @@ const Button = withPressable(View);
 const StyledText = withFont(Text);
 export default function ContactsScreen({}: Props) {
   const {width} = useWindowDimensions();
-
+  //55.76176083712166, 37.65824908772511
   const renderItem = (
     text: string,
-    type: 'phone' | 'wa' | 'inst',
+    type: 'phone' | 'wa' | 'inst' | 'map',
     phone: string,
   ) => {
     return (
@@ -45,6 +46,43 @@ export default function ContactsScreen({}: Props) {
                 break;
               case 'inst':
                 Linking.openURL('https://www.instagram.com/academyright/');
+                break;
+              case 'map':
+                const url = Platform.select({
+                  ios:
+                    'maps:' +
+                    55.76176083712166 +
+                    ',' +
+                    37.65824908772511 +
+                    '?q=' +
+                    'Москва, ул. Земляной Вал, Бизнес-центр "СИТИДЕЛ"',
+                  android:
+                    'geo:' +
+                    55.76176083712166 +
+                    ',' +
+                    37.65824908772511 +
+                    '?q=' +
+                    'Москва, ул. Земляной Вал, Бизнес-центр "СИТИДЕЛ"',
+                  windows: '',
+                  macos: '',
+                  web: '',
+                  native: '',
+                });
+
+                Linking.canOpenURL(url).then(supported => {
+                  if (supported) {
+                    return Linking.openURL(url);
+                  } else {
+                    const browser_url =
+                      'https://www.google.de/maps/@' +
+                      55.76176083712166 +
+                      ',' +
+                      37.65824908772511 +
+                      '?q=' +
+                      'Москва, ул. Земляной Вал, Бизнес-центр "СИТИДЕЛ"';
+                    return Linking.openURL(browser_url);
+                  }
+                });
                 break;
             }
           }}
@@ -85,6 +123,11 @@ export default function ContactsScreen({}: Props) {
                 style={{width: 40, height: 40, marginLeft: 16}}
                 source={require('../../assets/Instagram_logo_2016.svg.png')}
               />
+            ) : type === 'map' ? (
+              <Image
+                style={{width: 40, height: 40, marginLeft: 16}}
+                source={require('../../assets/outline_place_black_48dp.png')}
+              />
             ) : (
               <Image
                 style={{width: 40, height: 40, marginLeft: 16}}
@@ -121,6 +164,12 @@ export default function ContactsScreen({}: Props) {
         }}
         keyExtractor={(item, index) => index.toString()}
         data={[
+          {
+            text: 'Адрес компании',
+            phone:
+              '105064 г. Москва, ул. Земляной Вал, Бизнес-центр "СИТИДЕЛ", офис 4019',
+            type: 'map',
+          },
           {text: 'Телефон #1', phone: '+7(909)-885-41-53', type: 'phone'},
           {text: 'Телефон #2', phone: '+7(924)-148-17-65', type: 'phone'},
           {text: 'WhatsApp', phone: '+7(924)-148-17-65', type: 'wa'},

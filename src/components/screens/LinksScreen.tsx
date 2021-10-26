@@ -73,6 +73,7 @@ export default function LinksScreen({}: Props) {
         'Суды общей юрисдикции г. Москвы',
         'http://www.mos-gorsud.ru/',
       )}
+      {renderItem('Конституционный Суд РФ', 'http://ksrf.ru/')}
     </View>
   );
 }
