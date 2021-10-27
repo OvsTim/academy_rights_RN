@@ -62,7 +62,7 @@ export default function LinksScreen({}: Props) {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: '#DFF7FF',
+        backgroundColor: '#fafafa',
       }}>
       {renderItem('Официальный сайт Верховного суда РФ', 'http://www.vsrf.ru/')}
       {renderItem(

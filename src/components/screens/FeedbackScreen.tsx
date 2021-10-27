@@ -113,7 +113,7 @@ export default function FeedbackScreen({route, navigation}: Props) {
   }
 
   return (
-    <View style={{flex: 1, backgroundColor: '#DFF7FF'}}>
+    <View style={{flex: 1, backgroundColor: '#fafafa'}}>
       <KeyboardAwareScrollView
         contentContainerStyle={{
           alignItems: 'center',
@@ -200,7 +200,7 @@ export default function FeedbackScreen({route, navigation}: Props) {
             loading={loading}
             containerStyle={{
               width: width - 50,
-              backgroundColor: '#2862AC',
+              backgroundColor: '#143463',
               height: 54,
               alignSelf: 'center',
               borderRadius: 8,

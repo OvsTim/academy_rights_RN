@@ -66,7 +66,7 @@ export default function BaseInput(props: Props) {
           alignItems: 'center',
           justifyContent: 'center',
           backgroundColor: 'white',
-          borderColor: '#2862AC',
+          borderColor: '#143463',
           borderWidth: 2,
           borderRadius: 8,
         },

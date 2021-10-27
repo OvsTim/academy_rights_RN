@@ -36,7 +36,7 @@ export default function ServiceTextScreen({navigation}: Props) {
           }}
           style={{
             width: width - 50,
-            backgroundColor: '#2862AC',
+            backgroundColor: '#143463',
             paddingVertical: 8,
             alignSelf: 'center',
             borderRadius: 8,
@@ -73,7 +73,7 @@ export default function ServiceTextScreen({navigation}: Props) {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#DFF7FF'}}>
+    <View style={{flex: 1, backgroundColor: '#FAFAFA'}}>
       <ScrollView
         contentContainerStyle={{
           alignItems: 'center',

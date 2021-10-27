@@ -60,6 +60,7 @@ export default function FloatingButton() {
     <FloatingAction
       dismissKeyboardOnPress={true}
       position={'right'}
+      color={'#143463'}
       floatingIcon={
         <Image
           style={{width: 32, height: 32, tintColor: 'white'}}

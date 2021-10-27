@@ -49,7 +49,7 @@ export default function AppWithNavigationState() {
       }}>
       <StatusBar
         translucent={false}
-        backgroundColor={'#2862AC'}
+        backgroundColor={'#143463'}
         barStyle="light-content"
       />
       <MainNavigator />

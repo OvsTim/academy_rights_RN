@@ -75,13 +75,13 @@ export default function MainNavigator() {
           textTransform: 'capitalize',
           fontFamily: 'Montserrat-Bold',
         },
-        activeTintColor: '#DFF7FF',
+        activeTintColor: '#fafafa',
       }}
-      drawerStyle={{backgroundColor: '#2862AC', width: width - 50}}
+      drawerStyle={{backgroundColor: '#143463', width: width - 50}}
       screenOptions={{
         headerPressColorAndroid: 'white',
         headerShown: true,
-        headerStyle: {backgroundColor: '#2862AC'},
+        headerStyle: {backgroundColor: '#143463'},
         headerTitleStyle: {color: 'white', fontFamily: 'Montserrat-Regular'},
         headerTintColor: 'white',
 

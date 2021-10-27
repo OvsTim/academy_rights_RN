@@ -154,7 +154,7 @@ export default function ContactsScreen({}: Props) {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'flex-start',
-        backgroundColor: '#DFF7FF',
+        backgroundColor: '#fafafa',
       }}>
       <FlatList
         contentContainerStyle={{

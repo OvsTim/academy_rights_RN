@@ -11,7 +11,7 @@ const StyledText = withFont(Text);
 
 export default function HomeScreen({}: Props) {
   return (
-    <View style={{flex: 1, backgroundColor: '#DFF7FF'}}>
+    <View style={{flex: 1, backgroundColor: '#fafafa'}}>
       <ScrollView
         contentContainerStyle={{
           alignItems: 'center',

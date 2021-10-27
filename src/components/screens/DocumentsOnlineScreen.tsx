@@ -50,7 +50,7 @@ export default function DocumentsOnlineScreen({navigation}: Props) {
           <StyledText
             style={{
               width: (width / 3) * 2,
-              color: '#2862AC',
+              color: '#143463',
               fontWeight: '600',
               textAlign: 'center',
               fontSize: 15,
@@ -63,7 +63,7 @@ export default function DocumentsOnlineScreen({navigation}: Props) {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#DFF7FF'}}>
+    <View style={{flex: 1, backgroundColor: '#fafafa'}}>
       <ScrollView
         contentContainerStyle={{
           alignItems: 'flex-start',
@@ -115,7 +115,7 @@ export default function DocumentsOnlineScreen({navigation}: Props) {
           }
           containerStyle={{
             width: width - 50,
-            backgroundColor: '#2862AC',
+            backgroundColor: '#143463',
             height: 54,
             alignSelf: 'center',
             borderRadius: 8,

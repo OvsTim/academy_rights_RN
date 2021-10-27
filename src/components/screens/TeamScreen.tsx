@@ -54,7 +54,7 @@ export default function TeamScreen({}: Props) {
           />
           <StyledText
             style={{
-              color: '#2862AC',
+              color: '#143463',
               fontWeight:'600',
               textAlign: 'center',
               marginTop: 8,
@@ -77,7 +77,7 @@ export default function TeamScreen({}: Props) {
   };
 
   return (
-    <View style={{flex: 1, backgroundColor: '#DFF7FF'}}>
+    <View style={{flex: 1, backgroundColor: '#fafafa'}}>
       <ScrollView
         contentContainerStyle={{
           alignItems: 'flex-start',
